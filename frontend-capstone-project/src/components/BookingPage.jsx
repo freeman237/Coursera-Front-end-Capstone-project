@@ -1,6 +1,6 @@
 import React from 'react';
 import BookingForm from './BookingForm';
-import './styles/BookingPage.css'; // Add your page styles here
+import '../styles/BookingPage.css'; // Add your page styles here
 
 function BookingPage() {
   return (

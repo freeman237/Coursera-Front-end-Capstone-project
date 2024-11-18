@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './styles/BookingForm.css'; // Add your form styles here
+import '../styles/BookingForm.css'; // Add your form styles here
 
 function BookingForm() {
   const [formData, setFormData] = useState({
