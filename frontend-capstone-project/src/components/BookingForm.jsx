@@ -1,109 +1,96 @@
 import React, { useState } from 'react';
-import '../styles/BookingForm.css'; // Add your form styles here
+import '../styles/BookingForm.css';
 
 function BookingForm() {
+  // State for form inputs
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
     date: '',
-    time: '',
+    time: '17:00',
     guests: 1,
-    specialRequests: '',
+    occasion: 'Birthday',
   });
 
+  // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
   };
 
+  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted:', formData);
-    alert('Booking Submitted Successfully!');
+    console.log('Form Data Submitted:', formData);
+    alert('Reservation Submitted!');
   };
 
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
-      <h2 className="booking-form-title">Make a Reservation</h2>
+      {/* Date Input */}
+      <label htmlFor="date" className="form-label">
+        Choose date
+      </label>
+      <input
+        type="date"
+        id="date"
+        value={formData.date}
+        onChange={handleChange}
+        className="form-input"
+        required
+      />
 
-      <div className="form-group">
-        <label htmlFor="name" className="form-label">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="form-input"
-          required
-        />
-      </div>
+      {/* Time Input */}
+      <label htmlFor="time" className="form-label">
+        Choose time
+      </label>
+      <select
+        id="time"
+        value={formData.time}
+        onChange={handleChange}
+        className="form-select"
+      >
+        <option>17:00</option>
+        <option>18:00</option>
+        <option>19:00</option>
+        <option>20:00</option>
+        <option>21:00</option>
+        <option>22:00</option>
+      </select>
 
-      <div className="form-group">
-        <label htmlFor="email" className="form-label">Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="form-input"
-          required
-        />
-      </div>
+      {/* Guests Input */}
+      <label htmlFor="guests" className="form-label">
+        Number of guests
+      </label>
+      <input
+        type="number"
+        id="guests"
+        value={formData.guests}
+        onChange={handleChange}
+        className="form-input"
+        min="1"
+        max="10"
+        required
+      />
 
-      <div className="form-group">
-        <label htmlFor="date" className="form-label">Date:</label>
-        <input
-          type="date"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          className="form-input"
-          required
-        />
-      </div>
+      {/* Occasion Input */}
+      <label htmlFor="occasion" className="form-label">
+        Occasion
+      </label>
+      <select
+        id="occasion"
+        value={formData.occasion}
+        onChange={handleChange}
+        className="form-select"
+      >
+        <option>Birthday</option>
+        <option>Anniversary</option>
+      </select>
 
-      <div className="form-group">
-        <label htmlFor="time" className="form-label">Time:</label>
-        <input
-          type="time"
-          id="time"
-          name="time"
-          value={formData.time}
-          onChange={handleChange}
-          className="form-input"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="guests" className="form-label">Number of Guests:</label>
-        <input
-          type="number"
-          id="guests"
-          name="guests"
-          value={formData.guests}
-          onChange={handleChange}
-          className="form-input"
-          min="1"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="specialRequests" className="form-label">Special Requests:</label>
-        <textarea
-          id="specialRequests"
-          name="specialRequests"
-          value={formData.specialRequests}
-          onChange={handleChange}
-          className="form-textarea"
-        ></textarea>
-      </div>
-
-      <button type="submit" className="form-button">Book Now</button>
+      {/* Submit Button */}
+      <input
+        type="submit"
+        value="Make Your Reservation"
+        className="form-button"
+      />
     </form>
   );
 }
