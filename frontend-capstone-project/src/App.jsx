@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import SpecialsSection from './components/SpecialsSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import AboutSection from './components/AboutSection';
-import Footer from './components/Footer';
+import Navbar from './components/Navbar'; // Navigation bar
+import Footer from './components/Footer'; // Footer
+import HeroSection from './components/HeroSection'; // Home page hero section
+import SpecialsSection from './components/SpecialsSection'; // Specials section
+import TestimonialsSection from './components/TestimonialsSection'; // Testimonials
+import AboutSection from './components/AboutSection'; // About page section
+import BookingPage from './components/BookingPage'; // Booking Page
 
 function App() {
   return (
     <Router>
-      {/* Navbar will always be displayed */}
+      {/* Navbar appears on all pages */}
       <Navbar />
 
-      {/* Define Routes */}
+      {/* Routes define each page of the app */}
       <Routes>
         <Route
           path="/"
@@ -26,12 +27,10 @@ function App() {
             </>
           }
         />
-        <Route path="/specials" element={<SpecialsSection />} />
-        <Route path="/testimonials" element={<TestimonialsSection />} />
-        <Route path="/about" element={<AboutSection />} />
+        <Route path="/booking" element={<BookingPage />} />
       </Routes>
 
-      {/* Footer will always be displayed */}
+      {/* Footer appears on all pages */}
       <Footer />
     </Router>
   );
