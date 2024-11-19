@@ -1,113 +1,100 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/BookingForm.css";
 
-function BookingForm() {
-  const [availableTimes, setAvailableTimes] = useState([
-    "17:00",
-    "18:00",
-    "19:00",
-    "20:00",
-    "21:00",
-    "22:00",
-  ]);
+// Simulating an API fetch function
+const fetchData = (date) => {
+  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+  return availableTimes;
+};
 
+const BookingForm = ({ submitForm }) => {
   const [formData, setFormData] = useState({
     date: "",
     time: "",
     guests: 1,
-    occasion: "Birthday",
+    occasion: "",
   });
 
-  // Handle date changes and update available times
-  const handleDateChange = (e) => {
-    const selectedDate = e.target.value;
+  const [localAvailableTimes, setLocalAvailableTimes] = useState([]);
 
-    // Logic to update availableTimes based on selectedDate
-    // (Static data for now; can be enhanced later)
-    const updatedTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-    setAvailableTimes(updatedTimes);
+  // Fetch available times dynamically when date changes
+  useEffect(() => {
+    if (formData.date) {
+      const times = fetchData(new Date(formData.date));
+      setLocalAvailableTimes(times);
+    }
+  }, [formData.date]);
 
-    setFormData((prev) => ({
-      ...prev,
-      date: selectedDate,
-    }));
-  };
-
-  // Handle other input changes
+  // Handle input changes
   const handleChange = (e) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    submitForm(formData); // Call the submitForm function from props
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
-      <h1 className="form-heading">Book Now</h1>
-
-      {/* Date Field */}
+    <form onSubmit={handleSubmit} style={{ display: "grid", maxWidth: "300px", gap: "20px" }}>
       <label htmlFor="res-date">Choose date</label>
       <input
         type="date"
         id="res-date"
+        name="date"
         value={formData.date}
-        onChange={handleDateChange}
+        onChange={handleChange}
         required
       />
 
-      {/* Time Field */}
       <label htmlFor="res-time">Choose time</label>
       <select
         id="res-time"
+        name="time"
         value={formData.time}
         onChange={handleChange}
         required
       >
-        <option value="" disabled>
-          Select a time
-        </option>
-        {availableTimes.map((time, index) => (
+        <option value="">--Select a time--</option>
+        {localAvailableTimes.map((time, index) => (
           <option key={index} value={time}>
             {time}
           </option>
         ))}
       </select>
 
-      {/* Guests Field */}
       <label htmlFor="guests">Number of guests</label>
       <input
         type="number"
         id="guests"
-        value={formData.guests}
-        onChange={handleChange}
+        name="guests"
         min="1"
         max="10"
+        value={formData.guests}
+        onChange={handleChange}
         required
       />
 
-      {/* Occasion Field */}
       <label htmlFor="occasion">Occasion</label>
       <select
         id="occasion"
+        name="occasion"
         value={formData.occasion}
         onChange={handleChange}
         required
       >
+        <option value="">--Select an occasion--</option>
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      {/* Submit Button */}
-      <input type="submit" value="Make Your Reservation" className="submit-btn" />
+      <button type="submit" style={{ padding: "10px", fontSize: "16px" }}>
+        Make Your Reservation
+      </button>
     </form>
   );
-}
+};
 
 export default BookingForm;

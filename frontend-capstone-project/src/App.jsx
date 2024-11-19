@@ -6,6 +6,9 @@ import Specials from './components/Specials';
 import Testimonials from './components/Testimonials';
 import BookingPage from './components/BookingPage';
 import Footer from './components/Footer';
+import ConfirmedBooking from "./components/ConfirmedBooking";
+import BookingForm from './components/BookingForm';
+
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
           <Route path="/specials" element={<Specials />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/booking" element={<BookingPage />} />
+          <Route path="/" element={<BookingForm />} />
+          <Route path="/confirmation" element={<ConfirmedBooking />} /> 
         </Routes>
         <Footer />
       </div>
