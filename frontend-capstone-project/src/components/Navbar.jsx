@@ -11,8 +11,7 @@ function Navbar() {
           <li><Link to="/">Home</Link></li>
           <li><Link to="/specials">Specials</Link></li>
           <li><Link to="/testimonials">Testimonials</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/booking">Booking</Link></li> {/* New Link for Booking */}
+          <li><Link to="/booking">Booking</Link></li>
         </ul>
       </div>
     </nav>

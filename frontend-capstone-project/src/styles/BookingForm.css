@@ -1,42 +1,42 @@
-/* styles/BookingForm.css */
+/* BookingForm.css */
+
 .booking-form {
     display: grid;
+    gap: 20px;
     max-width: 300px;
     margin: 0 auto;
-    gap: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
     background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .form-label {
+  .booking-form label {
     font-size: 1rem;
     font-weight: bold;
-    color: #555;
   }
   
-  .form-input,
-  .form-select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .form-button {
+  .booking-form input,
+  .booking-form select {
     padding: 10px;
     font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: #4caf50;
-    border: none;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    cursor: pointer;
   }
   
-  .form-button:hover {
-    background-color: #45a049;
+  .submit-btn {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background-color: #e65c00;
   }
   
