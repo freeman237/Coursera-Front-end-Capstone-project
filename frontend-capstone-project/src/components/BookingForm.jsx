@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/BookingForm.css";
 
 // Simulating an API fetch function
@@ -7,17 +8,22 @@ const fetchData = (date) => {
   return availableTimes;
 };
 
-const BookingForm = ({ submitForm }) => {
+// Simulating an API submit function
+const submitAPI = (formData) => {
+  console.log("Submitting form data:", formData);
+  return true; // Simulate a successful API response
+};
+
+const BookingForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     date: "",
     time: "",
     guests: 1,
     occasion: "",
   });
-
   const [localAvailableTimes, setLocalAvailableTimes] = useState([]);
 
-  // Fetch available times dynamically when date changes
   useEffect(() => {
     if (formData.date) {
       const times = fetchData(new Date(formData.date));
@@ -25,16 +31,19 @@ const BookingForm = ({ submitForm }) => {
     }
   }, [formData.date]);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitForm(formData); // Call the submitForm function from props
+    const isSubmitted = submitAPI(formData);
+    if (isSubmitted) {
+      navigate("/confirmation"); // Navigate to confirmation page on successful submission
+    } else {
+      console.error("Failed to submit form.");
+    }
   };
 
   return (
