@@ -4,7 +4,7 @@ import '../styles/Footer.css';
 function Footer() {
   return (
     <footer className="footer">
-      <div className="footer-container">
+      <header className="footer-container">
         {/* Logo Section */}
         <div className="footer-logo">
           <img src="/path-to-logo.svg" alt="Logo" className="logo" />
@@ -49,7 +49,7 @@ function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </header>
     </footer>
   );
 }

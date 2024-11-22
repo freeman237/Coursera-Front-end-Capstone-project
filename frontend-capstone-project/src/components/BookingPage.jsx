@@ -4,7 +4,7 @@ import '../styles/BookingPage.css'; // Add your page styles here
 
 function BookingPage() {
   return (
-    <div className="booking-page">
+    <section className="booking-page">
       <header className="booking-header">
         <h1 className="booking-title">Book Your Table</h1>
         <p className="booking-description">
@@ -12,10 +12,10 @@ function BookingPage() {
         </p>
       </header>
 
-      <div className="booking-form-container">
+      <section className="booking-form-container">
         <BookingForm />
-      </div>
-    </div>
+      </section>
+    </section>
   );
 }
 
