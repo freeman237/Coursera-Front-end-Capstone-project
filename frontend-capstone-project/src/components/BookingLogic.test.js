@@ -1,35 +1,46 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import BookingForm from "./BookingForm";
+import { initializeTimes, updateTimes } from "./BookingLogic";
+import { fetchAPI } from "../utils/api";
 
-test("Renders the BookingForm heading", () => {
-  render(<BookingForm />);
-  const headingElement = screen.getByText("Book Now");
-  expect(headingElement).toBeInTheDocument();
-});
+// Mock the fetchAPI function
+jest.mock("../utils/api", () => ({
+  fetchAPI: jest.fn(),
+}));
 
-test("Renders the default available times", () => {
-  render(<BookingForm />);
-  const timeDropdown = screen.getByLabelText("Choose time");
-  expect(timeDropdown).toBeInTheDocument();
+describe("Booking Logic Tests", () => {
+  beforeEach(() => {
+    // Clear any previous mock data or calls
+    jest.clearAllMocks();
+  });
 
-  // Check default times in the dropdown
-  const timeOptions = screen.getAllByRole("option");
-  expect(timeOptions).toHaveLength(7); // 6 times + 1 default "Select a time" option
-  expect(timeOptions[1]).toHaveTextContent("17:00");
-  expect(timeOptions[6]).toHaveTextContent("22:00");
-});
+  test("initializeTimes should return available times from fetchAPI", () => {
+    // Mock fetchAPI to return a specific set of available times
+    const mockAvailableTimes = ["17:00", "18:00", "19:00"];
+    fetchAPI.mockReturnValue(mockAvailableTimes);
 
-test("Updates available times when a date is selected", () => {
-  render(<BookingForm />);
-  const dateInput = screen.getByLabelText("Choose date");
-  const timeDropdown = screen.getByLabelText("Choose time");
+    // Call initializeTimes
+    const result = initializeTimes();
 
-  // Simulate changing the date
-  fireEvent.change(dateInput, { target: { value: "2023-12-25" } });
+    // Check that fetchAPI was called exactly once
+    expect(fetchAPI).toHaveBeenCalledTimes(1);
+    // Verify the result matches the mocked available times
+    expect(result).toEqual(mockAvailableTimes);
+  });
 
-  // Verify that available times remain the same (static for now)
-  const timeOptions = screen.getAllByRole("option");
-  expect(timeOptions).toHaveLength(7);
-  expect(timeOptions[1]).toHaveTextContent("17:00");
-  expect(timeOptions[6]).toHaveTextContent("22:00");
+  test("updateTimes should call fetchAPI with the provided date and return available times", () => {
+    // Mock fetchAPI to return a specific set of available times
+    const mockAvailableTimes = ["17:00", "18:00", "19:00"];
+    fetchAPI.mockReturnValue(mockAvailableTimes);
+
+    // Define a sample date
+    const sampleDate = new Date("2024-11-22");
+
+    // Call updateTimes with the sample date
+    const result = updateTimes(sampleDate);
+
+    // Ensure fetchAPI was called with the correct date
+    expect(fetchAPI).toHaveBeenCalledTimes(1);
+    expect(fetchAPI).toHaveBeenCalledWith(sampleDate);
+    // Verify the result matches the mocked available times
+    expect(result).toEqual(mockAvailableTimes);
+  });
 });

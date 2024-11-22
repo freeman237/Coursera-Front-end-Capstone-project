@@ -1,92 +1,76 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/BookingForm.css";
-
-// Simulating an API fetch function
-const fetchData = (date) => {
-  const availableTimes = ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-  return availableTimes;
-};
-
-// Simulating an API submit function
-const submitAPI = (formData) => {
-  console.log("Submitting form data:", formData);
-  return true; // Simulate a successful API response
-};
+import { submitAPI } from "../utils/api"; // Ensure this file exists and is correctly imported
+import "../styles/BookingForm.css"
 
 const BookingForm = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     date: "",
     time: "",
-    guests: 1,
+    guests: "",
     occasion: "",
   });
-  const [localAvailableTimes, setLocalAvailableTimes] = useState([]);
 
-  useEffect(() => {
-    if (formData.date) {
-      const times = fetchData(new Date(formData.date));
-      setLocalAvailableTimes(times);
+  const navigate = useNavigate();
+
+  // Function to handle form submission
+  const submitForm = (formData) => {
+    const success = submitAPI(formData); // Simulate API call
+    if (success) {
+      navigate("/confirmed"); // Navigate to confirmation page if submission is successful
+    } else {
+      alert("Failed to submit booking. Please try again."); // Error handling
     }
-  }, [formData.date]);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const isSubmitted = submitAPI(formData);
-    if (isSubmitted) {
-      navigate("/confirmation"); // Navigate to confirmation page on successful submission
-    } else {
-      console.error("Failed to submit form.");
-    }
+    submitForm(formData); // Call submitForm with current form data
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "grid", maxWidth: "300px", gap: "20px" }}>
-      <label htmlFor="res-date">Choose date</label>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="date">Date:</label>
       <input
         type="date"
-        id="res-date"
+        id="date"
         name="date"
         value={formData.date}
         onChange={handleChange}
         required
       />
 
-      <label htmlFor="res-time">Choose time</label>
-      <select
-        id="res-time"
+      <label htmlFor="time">Time:</label>
+      <input
+        type="time"
+        id="time"
         name="time"
         value={formData.time}
         onChange={handleChange}
         required
-      >
-        <option value="">--Select a time--</option>
-        {localAvailableTimes.map((time, index) => (
-          <option key={index} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
+      />
 
-      <label htmlFor="guests">Number of guests</label>
+      <label htmlFor="guests">Guests:</label>
       <input
         type="number"
         id="guests"
         name="guests"
-        min="1"
-        max="10"
         value={formData.guests}
         onChange={handleChange}
+        min="1"
+        max="10"
         required
       />
 
-      <label htmlFor="occasion">Occasion</label>
+      <label htmlFor="occasion">Occasion:</label>
       <select
         id="occasion"
         name="occasion"
@@ -94,14 +78,12 @@ const BookingForm = () => {
         onChange={handleChange}
         required
       >
-        <option value="">--Select an occasion--</option>
+        <option value="">Select an occasion</option>
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      <button type="submit" style={{ padding: "10px", fontSize: "16px" }}>
-        Make Your Reservation
-      </button>
+      <button type="submit">Make Your Reservation</button>
     </form>
   );
 };
