@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path="/about" element={<AboutSection />} />
