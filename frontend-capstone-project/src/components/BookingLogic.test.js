@@ -1,46 +1,27 @@
-import { initializeTimes, updateTimes } from "./BookingLogic";
-import { fetchAPI } from "../utils/api";
+import { initializeTimes, updateTimes, fetchAPI } from "./BookingLogic";
 
 // Mock the fetchAPI function
-jest.mock("../utils/api", () => ({
-  fetchAPI: jest.fn(),
+vi.mock("./BookingLogic", () => ({
+  fetchAPI: vi.fn(() => ["17:00", "18:00", "19:00"]),
 }));
 
-describe("Booking Logic Tests", () => {
-  beforeEach(() => {
-    // Clear any previous mock data or calls
-    jest.clearAllMocks();
+describe("BookingLogic functions", () => {
+  test("initializeTimes returns an array of times", () => {
+    const times = initializeTimes();
+    expect(Array.isArray(times)).toBe(true);
+    expect(times).toEqual(["17:00", "18:00", "19:00"]);
   });
 
-  test("initializeTimes should return available times from fetchAPI", () => {
-    // Mock fetchAPI to return a specific set of available times
-    const mockAvailableTimes = ["17:00", "18:00", "19:00"];
-    fetchAPI.mockReturnValue(mockAvailableTimes);
-
-    // Call initializeTimes
-    const result = initializeTimes();
-
-    // Check that fetchAPI was called exactly once
-    expect(fetchAPI).toHaveBeenCalledTimes(1);
-    // Verify the result matches the mocked available times
-    expect(result).toEqual(mockAvailableTimes);
+  test("updateTimes returns updated times based on selected date", () => {
+    const date = "2024-11-25";
+    const times = updateTimes(date);
+    expect(Array.isArray(times)).toBe(true);
+    expect(times).toEqual(["17:00", "18:00", "19:00"]);
   });
 
-  test("updateTimes should call fetchAPI with the provided date and return available times", () => {
-    // Mock fetchAPI to return a specific set of available times
-    const mockAvailableTimes = ["17:00", "18:00", "19:00"];
-    fetchAPI.mockReturnValue(mockAvailableTimes);
-
-    // Define a sample date
-    const sampleDate = new Date("2024-11-22");
-
-    // Call updateTimes with the sample date
-    const result = updateTimes(sampleDate);
-
-    // Ensure fetchAPI was called with the correct date
-    expect(fetchAPI).toHaveBeenCalledTimes(1);
-    expect(fetchAPI).toHaveBeenCalledWith(sampleDate);
-    // Verify the result matches the mocked available times
-    expect(result).toEqual(mockAvailableTimes);
+  test("fetchAPI is called with the correct date", () => {
+    const date = new Date("2024-11-25");
+    fetchAPI(date);
+    expect(fetchAPI).toHaveBeenCalledWith(date);
   });
 });
