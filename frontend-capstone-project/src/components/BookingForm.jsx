@@ -1,121 +1,89 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/BookingForm.css"; // Optional: Add styles if needed
-import { submitAPI } from "../utils/api";
+import { submitAPI } from "../utils/api"; // Ensure this file exists and is correctly imported
+import "../styles/BookingForm.css"
 
-export const isFormValid = (formData) => {
-  return (
-    formData.date &&
-    formData.time &&
-    formData.guests > 0 &&
-    formData.guests <= 10 &&
-    formData.occasion
-  );
-};
-
-const BookingForm = ({ availableTimes, updateTimes }) => {
-  const navigate = useNavigate();
-
+const BookingForm = () => {
   const [formData, setFormData] = useState({
     date: "",
     time: "",
-    guests: 1,
+    guests: "",
     occasion: "",
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const navigate = useNavigate();
 
-    // Update available times if the date is updated
-    if (name === "date") {
-      updateTimes(value);
+  // Function to handle form submission
+  const submitForm = (formData) => {
+    const success = submitAPI(formData); // Simulate API call
+    if (success) {
+      navigate("/confirmed"); // Navigate to confirmation page if submission is successful
+    } else {
+      alert("Failed to submit booking. Please try again."); // Error handling
     }
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Validate the form data
-    if (isFormValid(formData)) {
-      // Submit the data and navigate to confirmation page
-      if (submitAPI(formData)) {
-        navigate("/confirmed-booking");
-      } else {
-        alert("Failed to submit the booking. Please try again.");
-      }
-    } else {
-      alert("Please fill in all the fields correctly.");
-    }
+    submitForm(formData); // Call submitForm with current form data
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit} data-testid="booking-form">
-      <h2>Book Your Table</h2>
-
-      {/* Date Input */}
-      <label htmlFor="date">Choose Date</label>
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="date">Date:</label>
       <input
         type="date"
         id="date"
         name="date"
         value={formData.date}
-        onChange={handleInputChange}
+        onChange={handleChange}
         required
       />
 
-      {/* Time Select */}
-      <label htmlFor="time">Choose Time</label>
-      <select
+      <label htmlFor="time">Time:</label>
+      <input
+        type="time"
         id="time"
         name="time"
         value={formData.time}
-        onChange={handleInputChange}
+        onChange={handleChange}
         required
-      >
-        <option value="" disabled>
-          Select Time
-        </option>
-        {availableTimes.map((time, index) => (
-          <option key={index} value={time}>
-            {time}
-          </option>
-        ))}
-      </select>
+      />
 
-      {/* Guests Input */}
-      <label htmlFor="guests">Number of Guests</label>
+      <label htmlFor="guests">Guests:</label>
       <input
         type="number"
         id="guests"
         name="guests"
         value={formData.guests}
-        onChange={handleInputChange}
+        onChange={handleChange}
         min="1"
         max="10"
         required
       />
 
-      {/* Occasion Select */}
-      <label htmlFor="occasion">Occasion</label>
+      <label htmlFor="occasion">Occasion:</label>
       <select
         id="occasion"
         name="occasion"
         value={formData.occasion}
-        onChange={handleInputChange}
+        onChange={handleChange}
         required
       >
-        <option value="" disabled>
-          Select Occasion
-        </option>
+        <option value="">Select an occasion</option>
         <option value="Birthday">Birthday</option>
         <option value="Anniversary">Anniversary</option>
       </select>
 
-      {/* Submit Button */}
-      <button type="submit" disabled={!isFormValid(formData)}>
-        Make Reservation
-      </button>
+      <button type="submit">Make Your Reservation</button>
     </form>
   );
 };
