@@ -56,14 +56,20 @@
   }
 
   .reserve-table-btn {
-    background: #f4ce14;
-    color: black;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px; /* Rounded corners */
-    padding: 12px 25px; /* Padding for spacing */
-    font-size: 1rem; /* Set text size */
+    background-color: #f4ce14; /* Matching brand color */
+    color: black; /* White text for button */
     font-weight: bold;
     cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
   }
   
+  .reserve-table-btn:hover {
+    background-color: #e1b912;
+    transform: scale(1.05); /* Darker shade on hover */
+  }
+
+  
+.reserve-table-btn:active {
+  background-color: #b3900e; /* Even darker for active state */
+}

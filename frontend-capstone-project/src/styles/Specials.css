@@ -37,24 +37,21 @@ p {
 }
 
 .button {
-  background-color: #ff6600;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 12px 25px;
-  font-size: 1rem;
+  background-color: #f4ce14; /* Matching brand color */
+  color: black; /* White text for button */
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #e65c00;
+  background-color: #e1b912; /* Darker shade on hover */
   transform: scale(1.05);
 }
 
 .button:active {
-  background-color: #cc5200;
+  background-color: #b3900e; /* Even darker for active state */
   transform: scale(1);
 }
 

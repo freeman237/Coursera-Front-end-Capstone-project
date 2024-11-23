@@ -59,6 +59,20 @@
   background-color: #f1f1f1; /* Light background for form fields */
 }
 
+.booking-form-container button {
+  background-color: #f4ce14; /* Matching brand color */
+  color: black; /* White text for button */
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.booking-form-container button:hover {
+  background-color: #e1b912; /* Darker shade on hover */
+  transform: scale(1.05);
+}
+
 /* Add some responsiveness */
 @media (max-width: 768px) {
   .booking-title {
