@@ -72,4 +72,5 @@
   
 .reserve-table-btn:active {
   background-color: #b3900e; /* Even darker for active state */
+  transform: scale(1);
 }
