@@ -1,90 +1,88 @@
-/* Footer.css */
 .footer {
-  background-color: #333; /* Dark background color for contrast */
-  color: white; /* Text color */
-  padding: 20px 15px; /* Reduced padding to make the footer smaller */
+  background-color: #333;
+  color: white;
+  padding: 20px 15px;
   display: flex;
-  justify-content: center; /* Center content horizontally */
-  position: relative; /* Keeps footer in document flow */
-  width: 100%; /* Footer spans full width */
-  margin-top: auto; /* Pushes footer to the bottom when content is short */
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin-top: auto;
 }
 
 .footer-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts layout responsively */
-  gap: 15px; /* Reduced gap between grid items */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
   width: 90%;
-  max-width: 1200px; /* Limits the width of the footer content */
+  max-width: 1200px;
 }
 
 .footer-logo img {
-  width: 120px; /* Slightly smaller logo for compact design */
+  width: 120px;
 }
 
 .footer-menu,
 .footer-contact,
 .footer-social {
-  text-align: left; /* Align text to the left */
+  text-align: left;
 }
 
 .footer-title {
-  font-size: 1rem; /* Smaller font size for section titles */
-  margin-bottom: 10px; /* Reduced spacing below title */
-  color: #f8f8f8; /* Light gray title color */
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #f8f8f8;
 }
 
 .footer-nav {
-  list-style: none; /* Removes bullets from navigation links */
-  padding: 0; /* Removes padding from list */
+  list-style: none;
+  padding: 0;
 }
 
 .footer-nav li {
-  margin-bottom: 8px; /* Reduced spacing between list items */
+  margin-bottom: 8px;
 }
 
 .footer-nav a {
-  color: #ccc; /* Light gray link color */
-  text-decoration: none; /* Removes underline from links */
-  transition: color 0.3s ease; /* Smooth hover transition */
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-nav a:hover {
-  color: white; /* Highlight link on hover */
+  color: white;
 }
 
 .footer-contact p {
-  margin: 4px 0; /* Compact spacing between contact text */
-  color: #ccc; /* Light gray text color */
+  margin: 4px 0;
+  color: #ccc;
 }
 
 .social-icons {
-  display: flex; /* Horizontal layout for social icons */
-  gap: 10px; /* Space between icons */
+  display: flex;
+  gap: 10px;
 }
 
 .social-icons a img {
-  width: 25px; /* Smaller size for social icons */
+  width: 25px;
   height: 25px;
-  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+  transition: transform 0.3s ease;
 }
 
 .social-icons a img:hover {
-  transform: scale(1.1); /* Slightly enlarge icon on hover */
+  transform: scale(1.1);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .footer-container {
-    gap: 10px; /* Smaller gap for smaller screens */
+    gap: 10px;
   }
 
   .footer-title {
-    font-size: 0.9rem; /* Slightly smaller font size on mobile */
+    font-size: 0.9rem;
   }
 
   .social-icons a img {
-    width: 20px; /* Smaller icons for smaller screens */
+    width: 20px;
     height: 20px;
   }
 }
