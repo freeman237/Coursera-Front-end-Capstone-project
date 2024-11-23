@@ -1,5 +1,12 @@
 import React from 'react';
 import '../styles/Footer.css';
+import logo from './images/logo.svg';
+import twitter from './images/social-media.png';
+import instagram from './images/instagram.png';
+import facebook from './images/facebook.png';
+import linkedin from './images/business.png';
+
+
 
 function Footer() {
   return (
@@ -7,7 +14,7 @@ function Footer() {
       <header className="footer-container">
         {/* Logo Section */}
         <div className="footer-logo">
-          <img src="/path-to-logo.svg" alt="Logo" className="logo" />
+          <img src={logo} alt="Logo" className="logo" />
         </div>
 
         {/* Doormat Menu */}
@@ -36,16 +43,16 @@ function Footer() {
           <h4 className="footer-title">Follow Us</h4>
           <div className="social-icons">
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-              <img src="/path-to-facebook-icon.svg" alt="Facebook" />
+              <img src={facebook} alt="Facebook" />
             </a>
             <a href="https://www.twitter.com" target="_blank" rel="noreferrer">
-              <img src="/path-to-twitter-icon.svg" alt="Twitter" />
+              <img src={twitter} alt="Twitter" />
             </a>
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
-              <img src="/path-to-instagram-icon.svg" alt="Instagram" />
+              <img src={instagram} alt="Instagram" />
             </a>
             <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">
-              <img src="/path-to-linkedin-icon.svg" alt="LinkedIn" />
+              <img src={linkedin} alt="LinkedIn" />
             </a>
           </div>
         </div>

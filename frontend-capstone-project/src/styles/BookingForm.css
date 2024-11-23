@@ -1,65 +1,93 @@
 /* BookingForm.css */
-.booking-form {
-  max-width: 600px;
-  margin: 0 auto;
+form {
+  max-width: 500px;
+  margin: 50px auto; /* Center the form horizontally with spacing above */
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f8f8f8; /* Matches the site's background */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elegance */
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-label {
+form label {
   display: block;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
   font-weight: bold;
   color: #333;
+  margin-bottom: 5px;
 }
 
-.form-input,
-.form-select {
+form input,
+form select,
+form button {
   width: 100%;
   padding: 10px;
-  font-size: 16px;
+  margin-bottom: 20px; /* Spacing between form elements */
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.form-input:focus,
-.form-select:focus {
-  border-color: #007bff;
+form input:focus,
+form select:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #f4ce14; /* Matches the site's yellow accent */
+  box-shadow: 0 0 4px #f4ce14;
 }
 
-.submit-button {
-  width: 100%;
-  padding: 12px;
-  font-size: 18px;
+form button {
+  background-color: #f4ce14; /* Primary site color */
+  color: white;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+  border: none;
   transition: background-color 0.3s ease;
 }
 
-.submit-button:hover {
-  background-color: #0056b3;
+form button:hover {
+  background-color: #d4ae12; /* Darker shade of yellow for hover */
 }
 
-.submit-button.disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+form button:active {
+  background-color: #b3900e; /* Even darker for active state */
 }
 
-.submit-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
+form input[type="number"] {
+  -moz-appearance: textfield; /* Removes number input spinners for Firefox */
+}
+
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none; /* Removes number input spinners for Chrome */
+}
+
+form select {
+  background-color: white; /* Neutral dropdown background */
+  cursor: pointer;
+}
+
+form select option {
+  color: #333; /* Neutral text color */
+}
+
+form select:invalid {
+  color: #999; /* Placeholder-like color for the default option */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+  }
+
+  form label {
+    font-size: 1rem;
+  }
+
+  form input,
+  form select,
+  form button {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
 }

@@ -1,20 +1,21 @@
 import React from 'react';
 import '../styles/HeroSection.css';
+import restaurantFood from "./images/restaurantfood.jpg";
 
 function HeroSection() {
   return (
     <section className="hero-section">
       <div className="hero-content">
         <div className="text-section">
-          <h1 className="hero-title">Welcome to Our Website</h1>
-          <h2 className="hero-subtitle">Discover Our Story</h2>
+          <h1 className="hero-title">Little Lemon</h1>
+          <h2 className="hero-subtitle">Chicago</h2>
           <p className="hero-paragraph">
-            We are dedicated to providing the best experience for our customers. Our story is one of passion, commitment, and excellence. Explore what makes us unique and why our clients trust us to deliver quality.
+              We are a family owned <br />Mediterranean restaurant,<br /> focused on traditional <br />recipes served with a modern <br /> twist.
           </p>
-          <button className="button">Learn More</button> {/* Add button */}
+          <button className="reserve-table-btn">Reserve a Table</button> {/* Add button */}
         </div>
         <div className="image-section">
-          <img src="/path-to-your-image.jpg" alt="Our Story" className="hero-image" />
+          <img src={restaurantFood} alt="Our Story" className="hero-image" />
         </div>
       </div>
     </section>

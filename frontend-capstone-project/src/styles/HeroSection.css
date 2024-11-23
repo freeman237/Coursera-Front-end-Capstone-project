@@ -2,11 +2,12 @@
 .hero-section {
     height: 500px;
     width: 100%;
-    background: linear-gradient(to bottom, #495e57 80%, white 20%);
+    background: linear-gradient(to bottom, #495e57 80%, #f9f9f9 20%);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    font-family: serif;
   }
   
   .hero-content {
@@ -22,19 +23,20 @@
   }
   
   .hero-title {
-    font-size: 2.5em;
+    font-size: 64px;
     margin-bottom: -25px;
     color: #f4ce14;
-    margin-bottom: 0;
+    margin-bottom: -15px;
+    margin-top: -10px;
   }
   
   .hero-subtitle {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 40px;
+    margin-bottom: 10px;
   }
   
   .hero-paragraph {
-    font-size: 1em;
+    font-size: 20px;
     line-height: 1.5;
   }
   
@@ -56,5 +58,12 @@
   .reserve-table-btn {
     background: #f4ce14;
     color: black;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    padding: 12px 25px; /* Padding for spacing */
+    font-size: 1rem; /* Set text size */
+    font-weight: bold;
+    cursor: pointer;
   }
   

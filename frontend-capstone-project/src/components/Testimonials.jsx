@@ -1,5 +1,9 @@
 import React from 'react';
 import '../styles/Testimonials.css';
+import boy1 from './images/boy1.jpg'
+import boy2 from './images/boy2.jpg'
+import girl1 from './images/girl1.jpg'
+import girl2 from './images/girl2.jpg'
 
 function Testimonials() {
   return (
@@ -12,7 +16,7 @@ function Testimonials() {
         <div className="testimonial-card">
           <div className="testimonial-rating">⭐⭐⭐⭐⭐</div>
           <img
-            src="./customer1.jpg"
+            src={boy1}
             alt="Customer 1"
             className="testimonial-image"
           />
@@ -25,7 +29,7 @@ function Testimonials() {
         <div className="testimonial-card">
           <div className="testimonial-rating">⭐⭐⭐⭐</div>
           <img
-            src="./customer2.jpg"
+            src={girl1}
             alt="Customer 2"
             className="testimonial-image"
           />
@@ -38,7 +42,7 @@ function Testimonials() {
         <div className="testimonial-card">
           <div className="testimonial-rating">⭐⭐⭐⭐⭐</div>
           <img
-            src="./customer3.jpg"
+            src={girl2}
             alt="Customer 3"
             className="testimonial-image"
           />
@@ -51,7 +55,7 @@ function Testimonials() {
         <div className="testimonial-card">
           <div className="testimonial-rating">⭐⭐⭐⭐</div>
           <img
-            src="./customer4.jpg"
+            src={boy2}
             alt="Customer 4"
             className="testimonial-image"
           />

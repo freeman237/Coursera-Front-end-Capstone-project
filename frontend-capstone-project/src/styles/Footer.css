@@ -1,10 +1,16 @@
 /* Footer.css */
 .footer {
-    background-color: #333;
-    color: white;
-    padding: 40px 20px;
-    display: flex;
-    justify-content: center;
+  background-color: #333;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  position: fixed; /* Makes the footer fixed */
+  bottom: 0; /* Ensures it sticks to the bottom */
+  left: 0;
+  width: 100%; /* Ensures the footer spans the full width of the viewport */
+  z-index: 10; /* Keeps the footer above other content if needed */
+;
   }
   
   .footer-container {

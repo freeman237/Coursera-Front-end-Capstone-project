@@ -13,26 +13,19 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-  <>
-  <Navbar />
-  <HeroSection/>
-  <Specials/>
-  <Testimonials/>
-  <AboutSection/>
-  <Footer/>
-  </>
-    /*<Router>
+    <Router>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HeroSection />} />
-        <Route path="/about" element={<AboutSection />} />
+        <Route path="/herosection" element={<HeroSection />} />
         <Route path="/specials" element={<Specials />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/confirmed" element={<ConfirmedBooking />} />
-        <Route path="/footer" element={<Footer />} />
+        <Route path="/about" element={<AboutSection />} />
       </Routes>
-    </Router>*/
+
+      <Footer />
+    </Router>
   );
 };
 
