@@ -13,7 +13,15 @@ import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <Router>
+  <>
+  <Navbar />
+  <HeroSection/>
+  <Specials/>
+  <Testimonials/>
+  <AboutSection/>
+  <Footer/>
+  </>
+    /*<Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<HeroSection />} />
@@ -24,7 +32,7 @@ const App = () => {
         <Route path="/confirmed" element={<ConfirmedBooking />} />
         <Route path="/footer" element={<Footer />} />
       </Routes>
-    </Router>
+    </Router>*/
   );
 };
 
