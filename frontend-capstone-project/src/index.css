@@ -26,15 +26,15 @@ section {
 
 /* Shared Button Style */
 .button {
-  background-color: #ff6600; /* Orange color */
+  background-color: #ff6600;
   color: white;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  padding: 12px 25px; /* Padding for spacing */
-  font-size: 1rem; /* Set text size */
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .button:hover {

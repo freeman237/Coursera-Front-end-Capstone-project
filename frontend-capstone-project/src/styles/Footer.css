@@ -1,78 +1,90 @@
 /* Footer.css */
 .footer {
-  background-color: #333;
-  color: white;
-  padding: 40px 20px;
+  background-color: #333; /* Dark background color for contrast */
+  color: white; /* Text color */
+  padding: 20px 15px; /* Reduced padding to make the footer smaller */
   display: flex;
-  justify-content: center;
-  position: fixed; /* Makes the footer fixed */
-  bottom: 0; /* Ensures it sticks to the bottom */
-  left: 0;
-  width: 100%; /* Ensures the footer spans the full width of the viewport */
-  z-index: 10; /* Keeps the footer above other content if needed */
-;
-  }
-  
+  justify-content: center; /* Center content horizontally */
+  position: relative; /* Keeps footer in document flow */
+  width: 100%; /* Footer spans full width */
+  margin-top: auto; /* Pushes footer to the bottom when content is short */
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts layout responsively */
+  gap: 15px; /* Reduced gap between grid items */
+  width: 90%;
+  max-width: 1200px; /* Limits the width of the footer content */
+}
+
+.footer-logo img {
+  width: 120px; /* Slightly smaller logo for compact design */
+}
+
+.footer-menu,
+.footer-contact,
+.footer-social {
+  text-align: left; /* Align text to the left */
+}
+
+.footer-title {
+  font-size: 1rem; /* Smaller font size for section titles */
+  margin-bottom: 10px; /* Reduced spacing below title */
+  color: #f8f8f8; /* Light gray title color */
+}
+
+.footer-nav {
+  list-style: none; /* Removes bullets from navigation links */
+  padding: 0; /* Removes padding from list */
+}
+
+.footer-nav li {
+  margin-bottom: 8px; /* Reduced spacing between list items */
+}
+
+.footer-nav a {
+  color: #ccc; /* Light gray link color */
+  text-decoration: none; /* Removes underline from links */
+  transition: color 0.3s ease; /* Smooth hover transition */
+}
+
+.footer-nav a:hover {
+  color: white; /* Highlight link on hover */
+}
+
+.footer-contact p {
+  margin: 4px 0; /* Compact spacing between contact text */
+  color: #ccc; /* Light gray text color */
+}
+
+.social-icons {
+  display: flex; /* Horizontal layout for social icons */
+  gap: 10px; /* Space between icons */
+}
+
+.social-icons a img {
+  width: 25px; /* Smaller size for social icons */
+  height: 25px;
+  transition: transform 0.3s ease; /* Smooth scale effect on hover */
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .footer-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    width: 90%;
-    max-width: 1200px;
+    gap: 10px; /* Smaller gap for smaller screens */
   }
-  
-  .footer-logo img {
-    width: 150px;
-  }
-  
-  .footer-menu,
-  .footer-contact,
-  .footer-social {
-    text-align: left;
-  }
-  
+
   .footer-title {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #f8f8f8;
+    font-size: 0.9rem; /* Slightly smaller font size on mobile */
   }
-  
-  .footer-nav {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .footer-nav li {
-    margin-bottom: 10px;
-  }
-  
-  .footer-nav a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .footer-nav a:hover {
-    color: white;
-  }
-  
-  .footer-contact p {
-    margin: 5px 0;
-    color: #ccc;
-  }
-  
-  .social-icons {
-    display: flex;
-    gap: 10px;
-  }
-  
+
   .social-icons a img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s;
+    width: 20px; /* Smaller icons for smaller screens */
+    height: 20px;
   }
-  
-  .social-icons a img:hover {
-    transform: scale(1.1);
-  }
-  
+}
