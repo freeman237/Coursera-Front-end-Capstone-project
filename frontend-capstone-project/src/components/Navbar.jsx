@@ -9,7 +9,7 @@ function Navbar() {
       <header className="navbar-content">
         <img src={logo} alt="Logo" className="logo" />
         <ul className="navbar-menu">
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/herosection">Home</Link></li>
           <li><Link to="/specials">Specials</Link></li>
           <li><Link to="/testimonials">Testimonials</Link></li>
           <li><Link to="/about">About</Link></li>
