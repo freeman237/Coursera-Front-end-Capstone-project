@@ -1,9 +1,8 @@
-/* ConfirmedBooking Page Styles */
 .confirmed-booking-page {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Start the content at the top */
-  height: 100vh; /* Ensure content covers at least 90% of the screen height */
+  justify-content: flex-start;
+  height: 100vh;
   padding: 20px;
   background-color: #f8f8f8;
   text-align: center;
@@ -12,7 +11,7 @@
 
 .confirmed-booking-header {
   margin-top: 50px;
-  flex-grow: 1; /* Ensures the header takes available space but doesn't push the footer */
+  flex-grow: 1;
 }
 
 .confirmed-booking-title {
@@ -30,7 +29,6 @@
   text-align: center;
 }
 
-/* Ensure footer remains at the bottom */
 footer {
   position: relative;
 }
