@@ -10,10 +10,9 @@ const ConfirmedBooking = () => {
           Thank you for your reservation. We look forward to seeing you!
         </p>
       </header>
-      {/* Footer will remain at the bottom as defined in global footer styles */}
+      {/* Footer will remain at the bottom due to the min-height and flex settings */}
     </div>
   );
 };
 
 export default ConfirmedBooking;
-

@@ -1,30 +1,24 @@
-/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body reset */
 body {
   margin: 0;
   padding: 0;
   width: 100vw;
-  overflow-x: hidden; /* Prevent horizontal scrolling caused by overflow */
+  overflow-x: hidden; 
   font-family: Arial, sans-serif;
   margin-top: 60px;
 }
 
-/* Ensure sections span the full width */
 section {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* styles.css or HeroSection.css or Specials.css */
-
-/* Shared Button Style */
 .button {
   background-color: #ff6600;
   color: rgb(0, 0, 0);
@@ -38,11 +32,11 @@ section {
 }
 
 .button:hover {
-  background-color: #e65c00; /* Darker orange on hover */
-  transform: scale(1.05); /* Slightly enlarge the button */
+  background-color: #e65c00;
+  transform: scale(1.05);
 }
 
 .button:active {
-  background-color: #cc5200; /* Even darker on click */
-  transform: scale(1); /* Return to original size */
+  background-color: #cc5200;
+  transform: scale(1);
 }

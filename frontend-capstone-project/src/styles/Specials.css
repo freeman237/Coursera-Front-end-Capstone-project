@@ -1,13 +1,10 @@
-/* Specials.css */
-
-/* Container for the entire specials section */
 .specials-section {
-  margin-top: 0; /* Adjust for navbar */
+  margin-top: 0;
   padding: 40px 220px;
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align the items to the left */
+  align-items: flex-start;
   width: 100%;
   font-family: serif;
 }
@@ -18,27 +15,25 @@ p {
   font-size: 15px;
 }
 
-/* Title style with left alignment */
 .specials-title {
   font-size: 2rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 20px;
-  align-self: flex-start; /* Align title to the left */
+  align-self: flex-start;
 }
 
-/* Button styling with positioning */
 .specials-header {
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Push the title and button to opposite sides */
-  align-items: center; /* Center align the items vertically */
-  margin-bottom: 20px; /* Add some space below the header */
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .button {
-  background-color: #f4ce14; /* Matching brand color */
-  color: black; /* White text for button */
+  background-color: #f4ce14;
+  color: black;
   font-weight: bold;
   cursor: pointer;
   border: none;
@@ -46,16 +41,15 @@ p {
 }
 
 .button:hover {
-  background-color: #e1b912; /* Darker shade on hover */
+  background-color: #e1b912;
   transform: scale(1.05);
 }
 
 .button:active {
-  background-color: #b3900e; /* Even darker for active state */
+  background-color: #b3900e;
   transform: scale(1);
 }
 
-/* Special dish card styles */
 .specials-container {
   display: flex;
   justify-content: space-around;
@@ -79,7 +73,6 @@ p {
   margin: 0;
 }
 
-/* Flex container for name and price */
 .dish-name-price {
   display: flex;
   justify-content: space-between;
@@ -103,9 +96,9 @@ p {
   color: black;
   margin-top: 20px;
   border: none;
-  border-radius: 5px; /* Rounded corners */
-  padding: 12px 25px; /* Padding for spacing */
-  font-size: 1rem; /* Set text size */
+  border-radius: 5px;
+  padding: 12px 25px;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
 }
